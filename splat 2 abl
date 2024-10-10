@@ -1,0 +1,29 @@
+// Global Variables
+const selectedWeapon = "Splat Roller"; // String
+const selectedAbility = "Ink Saver (Main)"; // String
+let playerLevel = 12; // Number
+let isCompetitive = true; // Boolean
+
+// Function to check if the weapon and ability combination is effective
+function checkWeaponEffectiveness() {
+    let effectivenessMessage;
+
+    // Decision Making Process
+    if ((playerLevel >= 10 && selectedWeapon === "Splat Roller" && selectedAbility === "Ink Saver (Main)") ||
+        (playerLevel >= 15 && selectedWeapon === "Splattershot" && selectedAbility === "Ninja Squid")) {
+        effectivenessMessage = "This combination is effective for competitive play!";
+    } else if (isCompetitive && playerLevel < 10) {
+        effectivenessMessage = "You should level up before using this combination competitively.";
+    } else {
+        effectivenessMessage = "This combination may not be the best choice.";
+    }
+
+    // Output the decision
+    console.log(`Player Level: ${playerLevel}`);
+    console.log(`Selected Weapon: ${selectedWeapon}`);
+    console.log(`Selected Ability: ${selectedAbility}`);
+    console.log(effectivenessMessage);
+}
+
+// Call the function to check weapon effectiveness
+checkWeaponEffectiveness();
