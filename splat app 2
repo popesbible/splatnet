@@ -1,0 +1,58 @@
+// Global Variables
+const weapons = ["Splat Roller", "Splattershot", "E-Liter 4K", "Nautilus 47"]; // Array of weapons
+const abilities = ["Ink Saver (Main)", "Ninja Squid", "Special Saver", "Swim Speed Up"]; // Array of abilities
+let playerLevel = 12; // Number
+let isCompetitive = true; // Boolean
+let selectedWeapon = weapons[0]; // Starting with Splat Roller
+let selectedAbility = abilities[0]; // Starting with Ink Saver (Main)
+
+// Function to check if the weapon and ability combination is effective
+function checkWeaponEffectiveness() {
+    let effectivenessMessage;
+
+    // Decision Making Process
+    if ((playerLevel >= 10 && selectedWeapon === "Splat Roller" && selectedAbility === "Ink Saver (Main)") ||
+        (playerLevel >= 15 && selectedWeapon === "Splattershot" && selectedAbility === "Ninja Squid") ||
+        (playerLevel >= 20 && selectedWeapon === "E-Liter 4K" && selectedAbility === "Special Saver")) {
+        effectivenessMessage = "This combination is effective for competitive play!";
+    } else if (isCompetitive && playerLevel < 10) {
+        effectivenessMessage = "You should level up before using this combination competitively.";
+    } else {
+        effectivenessMessage = "This combination may not be the best choice.";
+    }
+
+    // Output the decision
+    console.log(`Player Level: ${playerLevel}`);
+    console.log(`Selected Weapon: ${selectedWeapon}`);
+    console.log(`Selected Ability: ${selectedAbility}`);
+    console.log(effectivenessMessage);
+}
+
+// Function to change the weapon
+function changeWeapon(newWeapon) {
+    if (weapons.includes(newWeapon)) {
+        selectedWeapon = newWeapon;
+        console.log(`Weapon changed to: ${selectedWeapon}`);
+    } else {
+        console.log("Invalid weapon selection.");
+    }
+}
+
+// Function to change the ability
+function changeAbility(newAbility) {
+    if (abilities.includes(newAbility)) {
+        selectedAbility = newAbility;
+        console.log(`Ability changed to: ${selectedAbility}`);
+    } else {
+        console.log("Invalid ability selection.");
+    }
+}
+
+// Example usage
+changeWeapon("Splattershot");
+changeAbility("Ninja Squid");
+checkWeaponEffectiveness();
+
+// Try changing to an invalid weapon or ability
+changeWeapon("Invalid Weapon");
+changeAbility("Invalid Ability");
